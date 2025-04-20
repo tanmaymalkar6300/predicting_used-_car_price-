@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Car Price Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+  </ul>
+</nav>
+<br>
+
+<div class="container">
+  <h1>Used Car Price Prediction</h1>
+  <p><i>Enter car details below:</i></p>
+
+  <form method="POST" action="/">
+    <div class="form-group">
+      <label>Brand:</label>
+      <input type="text" class="form-control" name="brand" required>
+
+      <label>Model:</label>
+      <input type="text" class="form-control" name="model" required>
+
+      <label>Price (in USD):</label>
+      <input type="number" class="form-control" step="0.01" name="price" required>
+
+      <label>Mileage (in KM):</label>
+      <input type="number" class="form-control" step="0.01" name="mileage" required>
+
+      <label>Engine Volume (in L):</label>
+      <input type="number" class="form-control" step="0.1" name="engine_v" required>
+
+      <label>Body Type:</label>
+      <select class="form-control" name="body">
+        <option value="sedan">Sedan</option>
+        <option value="crossover">Crossover</option>
+        <option value="vagon">Wagon</option>
+        <option value="van">Van</option>
+        <option value="hatch">Hatchback</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label>Engine Type:</label>
+      <select class="form-control" name="engine_type">
+        <option value="Petrol">Petrol</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Gas">Gas</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Registered:</label>
+      <select class="form-control" name="registration">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label>Manufacture Year:</label>
+      <input type="number" class="form-control" name="year" required>
+
+      <br>
+      <button type="submit" class="btn btn-primary">Predict Price</button>
+    </div>
+  </form>
+
+  {% if output %}
+  <div class="alert alert-info mt-4" role="alert">
+    <strong>Predicted Price:</strong> {{ output }}
+  </div>
+  {% endif %}
+</div>
+
+</body>
+</html>
